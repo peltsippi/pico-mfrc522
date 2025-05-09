@@ -11,3 +11,7 @@ Idea is to refactor all init functions etc away from the code.
 Possibly also convert to c++ (using https://github.com/Harbys/pico-ssd1306.git as reference)
 
 Work in progress!
+
+Update:
+it seems that all my reader modules are counterfeit and non-functional.
+I'll probably just abandon this and pick some other chip instead.
