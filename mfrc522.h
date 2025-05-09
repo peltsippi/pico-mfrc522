@@ -32,14 +32,14 @@
 // Used for ADT object allocation
 #define MFRC_MAX_INSTANCES 2	 
 // Reset pin to MFRC522
-#define RESET_PIN 20
+//#define RESET_PIN 20
 
 static const uint8_t FIFO_SIZE = 64; // Size of the MFRC522 FIFO
 
-static const uint cs_pin = 17;
-static const uint sck_pin = 18;
-static const uint mosi_pin = 19;
-static const uint miso_pin = 16;
+//static const uint cs_pin = 17;
+//static const uint sck_pin = 18;
+//static const uint mosi_pin = 19;
+//static const uint miso_pin = 16;
 
 static const uint8_t SELF_TEST_BYTES[] = {
 	0x00, 0xEB, 0x66, 0xBA, 0x57, 0xBF, 0x23, 0x95,
@@ -315,7 +315,8 @@ typedef struct MFRC522_T *MFRC522Ptr_t;
  * Function to setup a MFRC522 ADT object
  * @return an initialized  ADT object
  */
-MFRC522Ptr_t MFRC522_Init();
+MFRC522Ptr_t MFRC522_Init(int cs_pin);
+
 
 /*******************************************************************************
 * Basic interface functions for communicating with the MFRC522
@@ -339,7 +340,7 @@ static inline void cs_deselect(const uint cs);
 /*******************************************************************************
 * Functions for manipulating the MFRC522
 *******************************************************************************/
-void PCD_Init(MFRC522Ptr_t mfrc, spi_inst_t *spi);
+void PCD_Init(MFRC522Ptr_t mfrc, spi_inst_t *spi, int reset_pin);
 void PCD_Reset(MFRC522Ptr_t mfrc);
 void PCD_AntennaOn(MFRC522Ptr_t mfrc);
 void PCD_AntennaOff(MFRC522Ptr_t mfrc);

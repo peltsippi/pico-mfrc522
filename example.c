@@ -6,8 +6,8 @@ void main() {
     // Declare card UID's
     uint8_t tag1[] = {0x93, 0xE3, 0x9A, 0x92};
 
-    MFRC522Ptr_t mfrc = MFRC522_Init();
-    PCD_Init(mfrc, spi0);
+    MFRC522Ptr_t mfrc = MFRC522_Init(cable_select_pin_here);
+    PCD_Init(mfrc, spi0, rfid_module_reset_pin_here);
 
     sleep_ms(5000);
 
